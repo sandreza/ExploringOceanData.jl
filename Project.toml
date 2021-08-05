@@ -1,0 +1,11 @@
+name = "ExploringOceanData"
+uuid = "8782e0a0-9797-44ec-9bf8-6af42876331b"
+authors = ["sandreza <andrenogueirasouza@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
+DocumenterTools = "35a29f4d-8980-5a13-9543-d66fff28ecb8"
+GLMakie = "e9467ef8-e4e7-5192-8a1a-b1aee30e663a"
+GeometryBasics = "5c1252a2-5f33-56bf-86c9-59e7332b4326"
+NCDatasets = "85f8d34a-cbdd-5861-8df4-14fed0d494ab"
