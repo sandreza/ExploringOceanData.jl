@@ -3,13 +3,12 @@ using ExploringOceanData
 
 makedocs(
     sitename = "ExploringOceanData",
-    format = Documenter.HTML(),
-    modules = [ExploringOceanData]
+    authors = "Andre",
+    format = Documenter.HTML(collapselevel = 1, mathengine = MathJax3()),
+    modules = [ExploringOceanData], 
+    pages = [
+    "Home" => "index.md",
+    ],
 )
 
-# Documenter can also automatically deploy documentation to gh-pages.
-# See "Hosting Documentation" and deploydocs() in the Documenter manual
-# for more information.
-#=deploydocs(
-    repo = "<repository url>"
-)=#
+deploydocs(repo = "github.com/sandreza/ExploringOceanData.jl.git", devbranch = "main")
