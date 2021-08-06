@@ -7,4 +7,4 @@ A few scripts in Julia to visualize and analyze data
 
 
 [docs-bld-img]: https://img.shields.io/badge/docs-red.svg
-[docs-bld-url]: https://clima.github.io/ExploringOceanData.jl/dev/
+[docs-bld-url]: https://sandreza.github.io/ExploringOceanData.jl/dev/
