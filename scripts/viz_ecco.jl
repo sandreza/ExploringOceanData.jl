@@ -1,8 +1,5 @@
-using GLMakie
-using Pkg
-using Statistics
-using NCDatasets
-using DataStructures
+using ExploringOceanData
+@boilerplate
 
 local_directory = "/mnt/podaac_drive/Version4/Release4/interp_monthly/SSH/1992/"
 filename = "SSH_1992_01.nc"
