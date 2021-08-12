@@ -20,7 +20,9 @@ for year in years
         full_path = joinpath(local_directory, variable, year, month)
         # Load Data Set
         ds = Dataset(full_path,"r")
-        salinity = ds["SALT"]
+
+        # Augment list
+        salinity = ds[variable]
         push!(salinity_extrema, extrema(salinity[:,:,1,1])) # surface salinity
         println("The salinity extrema are, ", salinity_extrema[end])
         toc = time()
