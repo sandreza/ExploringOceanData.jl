@@ -46,8 +46,9 @@ function available_fields(; local_directory="/mnt/podaac_drive/Version4/Release4
     return afields
 end
 
-function grab_ecco_field(fieldname::String, month_int::Int, year_int::Int;
-    skip=1, local_directory="/mnt/podaac_drive/Version4/Release4/interp_monthly/")
+
+function grab_ecco_dataset(fieldname::String, year_int::Int, month_int::Int;
+    local_directory="/mnt/podaac_drive/Version4/Release4/interp_monthly/")
 
     fields = readdir(local_directory)
     if !(fieldname in fields)
@@ -63,12 +64,20 @@ function grab_ecco_field(fieldname::String, month_int::Int, year_int::Int;
     months = readdir(joinpath(local_directory * fieldname, year))
     month = months[month_int]
     tic = time()
-    println("Looking at month ", month)
+    println("Looking at month file ", month)
     full_path = joinpath(local_directory, fieldname, year, month)
     # Load Data Set
     ds = Dataset(full_path, "r")
     toc = time()
     println("Time to load dataset = ", toc - tic, " seconds")
+
+    return ds
+end
+
+function grab_ecco_field(fieldname::String,  year_int::Int, month_int::Int;
+    skip=1, local_directory="/mnt/podaac_drive/Version4/Release4/interp_monthly/")
+
+    ds = grab_ecco_dataset(fieldname, year_int, month_int, local_directory=local_directory)
 
     field = ds[fieldname]
 
@@ -88,5 +97,5 @@ function grab_ecco_field(fieldname::String, month_int::Int, year_int::Int;
     bools = (var .== missing_value) .| (var .=== NaN) .| (var .=== missing)
     var[bools] .= NaN
 
-    return field, lat, lon, z
+    return var, lat, lon, z
 end
