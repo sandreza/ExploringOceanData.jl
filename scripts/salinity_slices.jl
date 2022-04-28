@@ -22,7 +22,6 @@ ds = Dataset(full_path,"r")
 toc = time()
 println("Time to load dataset = ", toc-tic , " seconds")
 
-
 salinity = ds["SALT"]
 
 # Plot variables
