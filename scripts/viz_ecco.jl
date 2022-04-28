@@ -111,3 +111,14 @@ for ax in [axG]
     ax.yticks = ([-80, -60, -30, 0, 30, 60, 80], ["80S", "60S", "30S", "0", "30N", "60N", "80N"])
 
 end
+
+#=
+iterator = collect(lat_slider.attributes.range[][1]:20:lat_slider.attributes.range[][end])
+framerate = 10
+record(fig, "quick_info.mp4", iterator;
+    framerate=framerate) do its
+    loni[] = 2*its
+    lati[] = ceil(Int, its/2)
+    println("currently ", its/iterator[end] * 100 , " percent complete")
+end
+=#
